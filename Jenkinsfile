@@ -26,15 +26,6 @@ stages {
 	
 	
 	}
-	stage('Venerability scan with sonar'){
-		steps{
-			withSonarQubeEnv('sonar'){
-				sh 'mvn sonar:sonar'
-				sh 'cat target/sonar/report-task.txt'
-			}
-			}
-		}
-	
 	stage('build java project'){
 		steps {
 			sh 'mvn clean package'
